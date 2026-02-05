@@ -1,4 +1,4 @@
-from sys import argv
+from sys import argv, stderr
 
 def get_simple(number: int):
     number = abs(number)
@@ -15,7 +15,7 @@ def get_simple(number: int):
     return res
 
 if len(argv) < 2:
-    print(f'No numbers to work with')
+    print(f'No numbers to work with', file=stderr)
     exit(1)
 
 
@@ -26,6 +26,6 @@ for i, arg in enumerate(argv[1:]):
         res_list = get_simple(number)
         print(f'{arg} -> {res_list}\n')
     except ValueError:
-        print(f'i = {i} number is not an integer or number at all = {arg}')
+        print(f'i = {i} number is not an integer or number at all = {arg}', file=stderr)
         exit(1)
 
