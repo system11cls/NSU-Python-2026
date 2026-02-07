@@ -59,9 +59,9 @@ def list_work(N):
 
 def set_work(N):
     not_prime = set()
-    primes = []
+    primes = [2]
     for i in range(2, N):
-        if i in not_prime:
+        if i % 2 == 0 or i in not_prime:
             continue
         primes.append(i)
         for j in range(i * i, N, i):
